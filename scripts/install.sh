@@ -33,9 +33,10 @@ mysql $MYSQLAUTH -e "FLUSH PRIVILEGES;"
 mysql $MYSQLAUTH -e "CREATE DATABASE magento;"
 
 # Install PHP
+sudo apt-get install python-software-properties
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install -y php7.0-fpm php7.0-mysql php7.0-cli php7.0-mcrypt php7.0-curl php7.0-gd php7.0-intl php7.0-xsl php7.0-zip php7.0-mbstring curl git
+sudo apt-get install -y php7.0-fpm php7.0-mysql php7.0-cli php7.0-mcrypt php7.0-curl php7.0-gd 7.0-intl 7.0-xsl 7.0-zip 7.0-mbstring curl git
 
 
 sudo add-apt-repository -y ppa:nginx/stable
@@ -81,6 +82,11 @@ server {
     include /var/www/html/nginx.conf.sample;
 }
 " > /etc/nginx/sites-available/default
+
+
+wget https://files.magerun.net/n98-magerun2.phar
+sudo cp ./n98-magerun2.phar /usr/local/bin/
+sudo chmod +x /usr/local/bin/n98-magerun2.phar
 
 # sudo crontab -u vagrant -e
 
