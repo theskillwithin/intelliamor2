@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Austinpeterson_Commercebug::commerce_bug_logs" 
+             title="Commerce Bug Logs" 
+             module="Austinpeterson_Commercebug" 
+             sortOrder="30" 
+             parent="Magento_Backend::system_other_settings" 
+             action="adminhtml/pulsestorm_commercebug/index/" 
+             dependsOnModule="Austinpeterson_Commercebug" 
+             resource="Austinpeterson_Commercebug::admin_log_menu"/>
+    </menu>
+</config>

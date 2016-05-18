@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <type name="Magento\Framework\Event\ManagerInterface">
+        <plugin name="pulsestorm_commercebug_plugins_events" type="Austinpeterson\Commercebug\Plugins\Events" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Framework\Event\InvokerInterface">
+        <plugin name="pulsestorm_commercebug_plugins_observers" type="Austinpeterson\Commercebug\Plugins\Observers" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Framework\View\Model\Layout\Merge">
+        <plugin name="pulsestorm_commercebug_plugins_merge" type="Austinpeterson\Commercebug\Plugins\Merge" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Framework\View\Layout">
+        <plugin name="pulsestorm_commercebug_magento_framework_view_layout_1" type="Austinpeterson\Commercebug\Plugins\MagentoFrameworkViewLayout" sortOrder="10" disabled="false"/>
+        <plugin name="pulsestorm_commercebug_magento_framework_view_layout_2" type="Austinpeterson\Commercebug\Plugin\Magento\Framework\View\Layout"/>        
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="AustinpetersonCommercebugCheckeventsCommand" xsi:type="object">Austinpeterson\Commercebug\Command\Checkevents</item>
+                <item name="pulsestorm_commercebug_command_contextscan" xsi:type="object">Austinpeterson\Commercebug\Command\Contextscan</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pulsestorm_commercebug_log_data_source" xsi:type="string">Austinpeterson\Commercebug\Model\ResourceModel\Log\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Austinpeterson\Commercebug\Model\ResourceModel\Log\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">pulsestorm_commercebug_log</argument>
+            <argument name="resourceModel" xsi:type="string">Austinpeterson\Commercebug\Model\ResourceModel\Log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AustinpetersonLogGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Austinpeterson\Commercebug\Model\ResourceModel\Log\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AustinpetersonLogFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AustinpetersonLogFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Filesystem\Driver\File">
+        <plugin name="pulsestorm_commercebug_magento_framework_filesystem_driver_file" type="Austinpeterson\Commercebug\Plugins\MagentoFrameworkFilesystemDriverFile"/>
+    </type>
+    <type name="Magento\Framework\View\Asset\GroupedCollection">
+        <plugin name="pulsestorm_commercebug_magento_framework_view_asset_groupedcollection" type="Austinpeterson\Commercebug\Plugin\Magento\Framework\View\Asset\GroupedCollection"/>
+    </type>
+    <type name="Magento\Framework\View\Layout\Data\Structure">
+        <plugin name="pulsestorm_commercebug_magento_framework_view_layout_data_structure" type="Austinpeterson\Commercebug\Plugin\Magento\Framework\View\Layout\Data\Structure"/>
+    </type>
+</config>

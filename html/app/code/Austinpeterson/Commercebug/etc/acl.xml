@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Austinpeterson_Commercebug::pulsestorm_commercebug" title="Commerce Bug">
+                    <resource id="Austinpeterson_Commercebug::admin_log_menu" title="Backend Admin Log Menu" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

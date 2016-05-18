@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
+    <event name="controller_action_predispatch">
+        <observer name="pulsestorm_commercebug_get_controller_information" 
+                  instance="Austinpeterson\Commercebug\Observers\Controller" 
+                  />
+    </event>
+    <event name="core_layout_block_create_after">
+        <observer name="pulsestorm_commercebug_get_block_information" 
+                  instance="Austinpeterson\Commercebug\Observers\Block" 
+                  />                  
+    </event>
+    <event name="model_load_before">
+        <observer name="pulsestorm_commercebug_get_model_information" 
+                  instance="Austinpeterson\Commercebug\Observers\Model" 
+                  />                  
+    </event>
+    <event name="core_collection_abstract_load_before">
+        <observer name="pulsestorm_commercebug_get_collection_information" 
+                  instance="Austinpeterson\Commercebug\Observers\Collection" 
+                  />                  
+    </event>
+    <event name="controller_front_send_response_before">
+        <observer name="pulsestorm_commercebug_add_to_html" 
+                  instance="Austinpeterson\Commercebug\Observers\Add" 
+                  />                  
+    </event>
+</config>
