@@ -1,6 +1,6 @@
 {
-    "name": "snowdog/theme-blank-sass",
-    "description": "SASS based version of Magento 2 Blank theme",
+    "name": "brandastic/intelliamor",
+    "description": "Intelliamor",
     "version": "0.5.2",
     "license": "MIT",
     "type": "magento2-theme",
